@@ -9,22 +9,21 @@ public class MajorityElement {
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = scan.nextInt();
             }
+
             int count = 0;
-            int ele = -1;
-            for(int i = 0;i<arr.length-1;i++){
+            int ele = 0;
+            for(int i = 0;i<arr.length;i++){
 
                 if(count==0){
+                    count = 1;
                     ele = arr[i];
                 }
-                else if(arr[i]==arr[i+1]){
+                else if(ele==arr[i]){
                     count++;
                 }
                 else{
                     count--;
                 }
-            }
-            if(count=0){
-                ele = arr[arr.length-1];
             }
 
         System.out.println(ele);
