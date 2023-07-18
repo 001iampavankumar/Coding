@@ -1,4 +1,4 @@
-package TapInstacks.Strings.SubStrings;
+package TapCode.Strings.SubStrings;
 import java.util.Scanner;
 public class LongestSubStringPalindrome {
     public static void main(String[] args) {

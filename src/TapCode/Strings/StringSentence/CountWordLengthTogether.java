@@ -1,16 +1,14 @@
-package TapInstacks.Strings.StringSentence;
+package TapCode.Strings.StringSentence;
 
 import java.util.Scanner;
 
-public class StoringWordsInArray {
-
+public class CountWordLengthTogether {
     static String subStr(String s,int start,int end){
         String t = "";
         for(int i = start;i<=end;i++){
             t = t + s.charAt(i);
         }
         return t;
-
     }
     static int countWords(String s){
         int count = 0;
@@ -34,7 +32,7 @@ public class StoringWordsInArray {
 
         int i = 0;
         int j = 0;
-        int index = 0;
+        int loop = 0;
 
         while(j<s.length()-1){
 
@@ -45,7 +43,7 @@ public class StoringWordsInArray {
 
             if(s.charAt(j)!=' '&& s.charAt(j+1)==' '){
                 //System.out.println(subStr(s,i,j));
-                str[index++] = subStr(s,i,j);
+                str[loop++] = subStr(s,i,j);
             }
 
             if(s.charAt(j)==' '&&s.charAt(j+1)!=' '){
@@ -57,21 +55,34 @@ public class StoringWordsInArray {
 
         if(s.charAt(s.length()-1)!=' '){
             //System.out.println(subStr(s,i,j));
-            str[index] = subStr(s,i,j);
+            str[loop++] = subStr(s,i,j);
         }
 
         return str;
 
     }
 
+    static String reverse(String s){
+        String t = "";
+        for(int i = s.length()-1;i>=0;i--){
+            t = t + s.charAt(i);
+        }
+        return t;
+    }
+
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+
+        //input = "india is my country"
+        //output = "india5 is2 my2 country7"
         String s = scan.nextLine();
         String [] str = storeWords(s);
-
+        String t = "";
         for(int i = 0;i<str.length;i++){
-            System.out.println(str[i]);
+
+            t = t+ str[i] + str[i].length() + " ";
         }
+        System.out.println(t);
     }
 }

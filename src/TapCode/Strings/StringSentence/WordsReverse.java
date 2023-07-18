@@ -1,8 +1,8 @@
-package TapInstacks.Strings.StringSentence;
+package TapCode.Strings.StringSentence;
 
 import java.util.Scanner;
 
-public class SentenceReverse {
+public class WordsReverse {
     static String subStr(String s,int start,int end){
         String t = "";
         for(int i = start;i<=end;i++){
@@ -75,14 +75,15 @@ public class SentenceReverse {
         Scanner scan = new Scanner(System.in);
 
         //input = "india is my country"
-        //output = "country my is india"
+        //output = "aidni si ym yrtnuoc"
         String s = scan.nextLine();
         String [] str = storeWords(s);
-        String t = "";
-        for(int i = str.length - 1;i>=0;i--){
+        String t= "";
+        for(int i = 0;i<str.length;i++){
 
-            t = t + str[i]+ " ";
+            t = t + reverse(str[i]) + " ";
         }
+
         System.out.println(t);
     }
 }

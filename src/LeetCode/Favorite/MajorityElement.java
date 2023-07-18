@@ -10,6 +10,7 @@ public class MajorityElement {
                 arr[i] = scan.nextInt();
             }
 
+            //see leet code  for the explnation
             int count = 0;
             int ele = 0;
             for(int i = 0;i<arr.length;i++){

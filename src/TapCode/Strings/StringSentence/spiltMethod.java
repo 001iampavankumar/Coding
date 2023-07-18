@@ -1,4 +1,4 @@
-package TapInstacks.Strings.StringSentence;
+package TapCode.Strings.StringSentence;
 
 import java.util.Scanner;
 
