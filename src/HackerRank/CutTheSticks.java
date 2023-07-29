@@ -13,6 +13,7 @@ public class CutTheSticks {
             arr.add(scan.nextInt());
         }
 
+
         ArrayList<Integer> list = new ArrayList<>();
 
         int loop = 0;
