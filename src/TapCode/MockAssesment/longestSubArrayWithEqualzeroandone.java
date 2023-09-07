@@ -19,10 +19,12 @@ public class longestSubArrayWithEqualzeroandone {
                 count = 0;
                 for (int k = i; k <= j; k++) {
 
-                   if(arr[k]==1 || arr[k]==0){
-
-                       zc++;
+                   if(arr[k]==1){
                        oc++;
+                       count++;
+                   }
+                   else if(arr[k]==0){
+                       zc++;
                        count++;
                    }
                    else{
@@ -48,7 +50,7 @@ public class longestSubArrayWithEqualzeroandone {
 
         Scanner scan = new Scanner(System.in);
 
-        int[] arr = {9,0,9,1,0,1,0};
+        int[] arr = {9,0,9,1,0,1,0,8,0,1,1,1,1,1,1,1,1};
 
         longest(arr);
     }

@@ -1,3 +1,4 @@
+package TapCode.MockAssesment;
 public class LongestSubstringWithVowels {
     public static String longestSubstringWithVowels(String input) {
         if (input == null || input.isEmpty()) {

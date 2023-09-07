@@ -31,7 +31,7 @@ public class LongestSubstringWithVowels {
     }
 
     public static void main(String[] args) {
-        String inputString = "aeiou";
+        String inputString = "aekdjhgdkjghiou";
         String longestVowelSubstring = longestSubstringWithVowels(inputString);
         System.out.println("Longest substring with more than two vowels: " + longestVowelSubstring);
     }
