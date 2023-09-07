@@ -1,5 +1,6 @@
 package Companies.PeoulTechnologies;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReplaceWordInSentence {
@@ -11,66 +12,107 @@ public class ReplaceWordInSentence {
         //input
         String s1 = scan.nextLine();
         String s2 = scan.nextLine();
-        String t2 = scan.nextLine();
+        String res = scan.nextLine();
 
-        //char arrays
-        char[] ch1 = s1.toCharArray();
-        char[] ch2 = s2.toCharArray();
 
-        //char lengths
+
+        //setting up char array
+        char[] ch = s1.toCharArray();
+
+        //length
+        int n = 0;
+
+        //finding length
+        for (char c : ch) {
+            n++;
+        }
+
+
+        //creating string with the help of count method
+        String[] arr = new String[count(ch, n)];
+
+        //empty string
+        String t = "";
+
+        //string array index to zero at first
+        int stringIndex = 0;
+
+        //adding words to stirng using temp string
+        for (int i = 0; i < n - 1; i++) {
+            if (ch[i] != ' ') {
+                t = t + ch[i];
+            }
+            if (ch[i] != ' ' && ch[i + 1] == ' ') {
+                arr[stringIndex++] = t;
+                t = "";
+            }
+        }
+
+        //if temp is not empty then add lastString Character to temp
+        if (t != "") {
+            t = t + ch[n - 1];
+            arr[stringIndex] = t;
+        }
+
+        //finding the length of string array
+        int length = count(ch,n);
+
+        //comparing the strings with given string
+        for(int i = 0;i<length;i++){
+
+            //we can't use "==" so i wrote a function to compare strings
+            if(sameOrNot(arr[i],s2)){
+                arr[i]=res;
+            }
+        }
+
+        //printing the result
+        for(String st : arr){
+            System.out.print(st+" ");
+        }
+
+
+
+    }
+    public static boolean sameOrNot(String s, String t) {
         int n1 = 0;
         int n2 = 0;
 
-        //finding lengths
-        for(char ch:ch1){
+        char[] ch1 = s.toCharArray();
+        char[] ch2 = t.toCharArray();
+
+        for (char c : ch1) {
             n1++;
         }
-        for(char ch:ch2){
+
+        for (char c : ch2) {
             n2++;
         }
 
-        //finding end in order to combine the three strings
-        int end = returnEnd(ch1,ch2,n1,n2);
-
-        //empty strings required for combining
-        String t1 = "";
-        String t3 = "";
-
-        //first part
-        for(int i = 0;i<(end-n2);i++){
-            t1 = t1 + ch1[i];
+        if (n1 != n2) {
+            return false;
         }
 
-        //last part
-        for(int i = end;i<n1;i++){
-            t3 = t3 + ch1[i];
+        for (int i = 0; i < n1; i++) {
+            if (ch1[i] != ch2[i]) {
+                return false;
+            }
         }
 
-        //first middle last
-        System.out.println(t1 + t2 + t3);
+        return true;
     }
 
-    public static int returnEnd(char[] ch1,char[] ch2,int n1,int n2){
-
-        int i = 0;
-        int j = 0;
-
-        while(i<n1){
-
-            while(n2>j && (ch1[i]==ch2[j])){
-                i++;
-                j++;
+    public static int count(char[] ch, int n) {
+        int count = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (ch[i] != ' ' && ch[i + 1] == ' ') {
+                count++;
             }
-
-            if(j==n2){
-                return i;
-            }
-            else{
-                j = 0;
-            }
-
-            i++;
         }
-        return -1;
+        if (ch[n - 1] != ' ') {
+            count++;
+        }
+        return count;
     }
+
 }
